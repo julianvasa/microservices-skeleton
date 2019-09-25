@@ -1,18 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>in.element</groupId>
+    <groupId>com.microservices.skeleton</groupId>
     <artifactId>registration</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
     <properties>
-        <start-class>in.element.RegistrationServer</start-class>
+        <start-class>com.microservices.skeleton.RegistrationServer</start-class>
     </properties>
 
     <parent>
-        <groupId>in.element</groupId>
-        <artifactId>insurance</artifactId>
+        <groupId>com.microservices.skeleton</groupId>
+        <artifactId>root</artifactId>
         <version>1.0</version>
     </parent>
 
