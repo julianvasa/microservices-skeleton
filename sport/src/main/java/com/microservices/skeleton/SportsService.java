@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 public class SportsService {
 
-    SportsRepository repository;
+    final SportsRepository repository;
 
     @Autowired
     public SportsService(SportsRepository repository) {

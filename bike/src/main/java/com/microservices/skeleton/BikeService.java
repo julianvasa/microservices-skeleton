@@ -7,7 +7,7 @@ import java.util.List;
 
 @Service
 public class BikeService {
-    BikeRepository repository;
+    final BikeRepository repository;
 
     @Autowired
     public BikeService(BikeRepository repository) {

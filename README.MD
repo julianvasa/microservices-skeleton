@@ -15,3 +15,24 @@ the tariff, which is the individual configuration for each customer, should be c
 <br><br>
 The solution should store calculated prices and make them accessible via an endpoint.
 <br><br>
+
+**Run the registration service first**
+
+<code>mvn clean install package
+
+cd registration/target
+
+java -jar registration-1.0.jar
+</code>
+
+**Run the other services**
+
+<code>cd bike/target
+
+java -jar bike-1.0.jar
+</code>
+
+... the same for all other serivices
+
+**Check if all services have been registered to the registration service**
+http://localhost:1111

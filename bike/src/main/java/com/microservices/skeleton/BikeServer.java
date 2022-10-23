@@ -5,16 +5,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-import java.util.logging.Logger;
-
 @SpringBootApplication
 @EnableDiscoveryClient
 public class BikeServer {
 
 	@Autowired
 	protected BikeRepository repository;
-
-	protected Logger logger = Logger.getLogger(BikeServer.class.getName());
+	
 
 	public static void main(String[] args) {
 		// Tell server to look for bike-server.yml

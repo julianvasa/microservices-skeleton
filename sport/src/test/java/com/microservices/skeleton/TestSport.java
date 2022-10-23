@@ -1,25 +1,32 @@
 package com.microservices.skeleton;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.validation.*;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.ValidationException;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
+
 import java.util.Optional;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@RunWith(SpringRunner.class)
+
+@SpringBootTest
 public class TestSport {
 
     private static Validator validator;
 
-    @Before
-    public void setUp() {
+
+    @BeforeAll
+    public static void setUp() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
     }
+
 
     @Test
     public void sportHasCoverageWithinRange() {
@@ -36,7 +43,7 @@ public class TestSport {
         Object sport = new Sport();
         ((Sport) sport).setCoverage(2000000.0);
         Optional<ConstraintViolation<Object>> violation = validator.validate(sport).stream().findFirst();
-        assertEquals(violation.isPresent(), true);
+        assertTrue(violation.isPresent());
     }
 
 }

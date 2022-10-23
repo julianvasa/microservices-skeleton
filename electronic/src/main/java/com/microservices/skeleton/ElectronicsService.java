@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 public class ElectronicsService {
 
-    ElectronicsRepository repository;
+    final ElectronicsRepository repository;
 
     @Autowired
     public ElectronicsService(ElectronicsRepository repository) {

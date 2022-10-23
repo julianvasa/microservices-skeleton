@@ -1,7 +1,7 @@
 # Spring properties
 spring:
   application:
-     name: jewerly-service  # Service registers under this name
+     name: jewelry-service  # Service registers under this name
 
 # Map the error path to error template (for Thymeleaf)
 error.path: /error

@@ -1,18 +1,16 @@
 package com.microservices.skeleton;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-@RunWith(SpringRunner.class)
+
 @DataJpaTest
 public class TestBikeRepository {
 
@@ -31,15 +29,12 @@ public class TestBikeRepository {
     public void whenInsertedBikeCheckRepositorySize() {
         Bike bike = new Bike();
         bike.setCoverage(2000.0);
-        Bike savedBike = repository.save(bike);
+        repository.save(bike);
 
         List<Bike> bikes = repository.findAll();
         assertEquals(1, bikes.size());
     }
 
 
-    @SpringBootApplication
-    static class Configuration {
-    }
 
 }

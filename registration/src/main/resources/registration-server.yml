@@ -1,6 +1,6 @@
 # Ignore JDBC Dependency
-# This demo puts 3 applicatons in the same project so they all pick up the
-# JDBC Depdendency, but this application doesn't need it.
+# This demo puts 3 applications in the same project, so they all pick up the
+# JDBC dependency, but this application doesn't need it.
 spring.autoconfigure.exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 
 # Configure this Discovery Server

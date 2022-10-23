@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 public class JewelryService {
 
-    JewelryRepository repository;
+    final JewelryRepository repository;
 
     @Autowired
     public JewelryService(JewelryRepository repository) {

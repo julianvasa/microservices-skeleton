@@ -13,32 +13,32 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 @SpringBootTest
-public class TestElectronicService {
+public class TestJewelryService {
 
     @Autowired
-    private ElectronicsService service;
+    private JewelryService service;
 
 
     @Test
-    public void whenCoverageWithinRange_SavedElectronic() {
-        Electronic electronic = new Electronic();
-        electronic.setCoverage(2000.0);
+    public void whenCoverageWithinRange_SavedJewelry() {
+        Jewelry jewelry = new Jewelry();
+        jewelry.setCoverage(2000.0);
 
-        Electronic savedElectronic = service.insert(electronic);
-        assertNotNull(savedElectronic);
+        Jewelry savedJewelry = service.insert(jewelry);
+        assertNotNull(savedJewelry);
     }
 
 
     @Test
-    public void whenCoverageOutOfRange_NotSavedElectronic() {
+    public void whenCoverageOutOfRange_NotSavedJewelry() {
         TransactionSystemException exception = assertThrows(
                 TransactionSystemException.class,
                 () -> {
-                    Electronic electronic = new Electronic();
-                    electronic.setCoverage(200000.0);
-                    service.insert(electronic);
+                    Jewelry jewelry = new Jewelry();
+                    jewelry.setCoverage(200000.0);
+                    service.insert(jewelry);
                 },
-                "Expected whenCoverageOutOfRange_NotSavedSport() to throw, but it didn't"
+                "Expected whenCoverageOutOfRange_NotSavedJewelry() to throw, but it didn't"
         );
 
         assertFalse(Objects.requireNonNull(exception.getMessage()).isEmpty());

@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>sport</artifactId>
+    <artifactId>jewerly</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
@@ -16,7 +16,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        <start-class>com.microservices.skeleton.SportServer</start-class>
+        <start-class>com.microservices.skeleton.JewelryServer</start-class>
     </properties>
 
     <build>

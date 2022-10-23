@@ -1,35 +1,23 @@
 package com.microservices.skeleton;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.TransactionSystemException;
 
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
+import java.util.Objects;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@RunWith(SpringRunner.class)
+
 @SpringBootTest
 public class TestSportService {
-
-    private static Validator validator;
 
     @Autowired
     private SportsService service;
 
-    @Before
-    public void setUp() {
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        validator = factory.getValidator();
-    }
 
     @Test
     public void whenCoverageWithinRange_SavedSport() {
@@ -40,14 +28,18 @@ public class TestSportService {
         assertNotNull(savedSport);
     }
 
-    @Test(expected = TransactionSystemException.class)
+
+    @Test
     public void whenCoverageOutOfRange_NotSavedSport() {
-        Sport sport = new Sport();
-        sport.setCoverage(200000.0);
-        service.insert(sport);
+        TransactionSystemException exception = assertThrows(TransactionSystemException.class, () -> {
+                    Sport sport = new Sport();
+                    sport.setCoverage(2000000.0);
+                    service.insert(sport);
+                },
+                "Expected whenCoverageOutOfRange_NotSavedSport() to throw, but it didn't"
+        );
+
+        assertFalse(Objects.requireNonNull(exception.getMessage()).isEmpty());
     }
 
-    @SpringBootApplication
-    static class Configuration {
-    }
 }
